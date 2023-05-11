@@ -2,12 +2,13 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-var pastTime = $('.past');
-var presentTime = $('.present');
-var futureTime = $('.future');
+//----Old variables for a different theory-------------------------------------------
+// var pastTime = $('.past');
+// var presentTime = $('.present');
+// var futureTime = $('.future');
+//-----------------------------------------------------------------------------------
 
-
-//$(function () {
+$(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -25,7 +26,7 @@ var futureTime = $('.future');
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-//});
+
 
 // TODO: Add code to display the current date in the header of the page. Done!
 var currentDayEl = $('#currentDay');
@@ -66,13 +67,15 @@ function timeBlockColor() {
        timeBlockEl.classList.add('future')
      }
   }
- 
+ //----My Original idea which i modified in if statement cause it wasn't working---- 
   // if (timeBlockTime < presentHour || timeBlockTime > 17) {
   //   timeBlockTime.removeClass('present')
   //   timeBlockTime.removeClass('future')
   //   timeBlockTime.addClass('past')
   // }
 }
+//-----------------------------------------------------------------------------------
+
 //get element by class so timeblock class
 //and compare there id # to the hour of day
 
@@ -88,3 +91,6 @@ $('.time-block').each(function() {
   var hourId = $(this).attr('id');
   $(this).children('textarea').val(localStorage.getItem(hourId));
 })
+
+
+});

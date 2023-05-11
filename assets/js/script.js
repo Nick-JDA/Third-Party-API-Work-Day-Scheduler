@@ -61,7 +61,7 @@ function timeBlockColor() {
     timeBlockTime.addClass('future')
   }
 
-  if (timeBlockTime < presentHour) {
+  if (timeBlockTime < presentHour || timeBlockTime > 17) {
     timeBlockTime.removeClass('present')
     timeBlockTime.removeClass('future')
     timeBlockTime.addClass('past')

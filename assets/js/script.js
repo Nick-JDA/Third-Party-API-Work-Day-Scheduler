@@ -5,6 +5,7 @@
 var pastTime = $('.past');
 var presentTime = $('.present');
 var futureTime = $('.future');
+var timeBlockTime = $("#9, #10, #11, #12, #13, #14, #15, #16, #17");
 
 //$(function () {
   // TODO: Add a listener for click events on the save button. This code should
@@ -26,16 +27,44 @@ var futureTime = $('.future');
   //
 //});
 
-
-
 // TODO: Add code to display the current date in the header of the page. Done!
 var currentDayEl = $('#currentDay');
 
 function dayCurrent() {
   var todayDate = dayjs().format('dddd, MMMM D');
   currentDayEl.text(todayDate);
+  timeBlockColor()
 }
 dayCurrent();
 
 setInterval(dayCurrent, 1000);
+
+//if string value ie : the hour"10" is equal to current hour so var presentHour = dayjs().format('H');
+//then class = present
+
+//if string value ie: the hour"11" is greater than presentHour ie:"10" then do class = future
+
+//if string value ie: the hour"9" is less than presentHour ie:"10" then do class = past
+function timeBlockColor() {
+  var presentHour = dayjs().format('H');
+  console.log(presentHour);
+  
+  if (timeBlockTime == presentHour) {
+    timeBlockTime.removeClass('past')
+    timeBlockTime.removeClass('future')
+    timeBlockTime.addClass('present')
+  }
+
+  if (timeBlockTime > presentHour) {
+    timeBlockTime.removeClass('past')
+    timeBlockTime.removeClass('present')
+    timeBlockTime.addClass('future')
+  }
+
+  if (timeBlockTime < presentHour) {
+    timeBlockTime.removeClass('present')
+    timeBlockTime.removeClass('future')
+    timeBlockTime.addClass('past')
+  }
+}
 

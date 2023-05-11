@@ -5,7 +5,7 @@
 var pastTime = $('.past');
 var presentTime = $('.present');
 var futureTime = $('.future');
-var timeBlockTime = $("#9, #10, #11, #12, #13, #14, #15, #16, #17");
+
 
 //$(function () {
   // TODO: Add a listener for click events on the save button. This code should
@@ -46,24 +46,32 @@ setInterval(dayCurrent, 1000);
 
 //if string value ie: the hour"9" is less than presentHour ie:"10" then do class = past
 function timeBlockColor() {
-  var presentHour = dayjs().format('H');
+  var presentHour = dayjs().hour();
+  var timeBlockTimeArray = $(".time-block");
   console.log(presentHour);
-  
-  if (timeBlockTime == presentHour) {
-    timeBlockTime.removeClass('past')
-    timeBlockTime.removeClass('future')
-    timeBlockTime.addClass('present')
+  for (var i = 0; i < timeBlockTimeArray.length; i++) {
+    var timeBlockTime = timeBlockTimeArray[i].getAttribute('id');
+    var timeBlockEl = timeBlockTimeArray[i]
+    if (timeBlockTime < presentHour) {
+      //timeBlockTime.removeClass('past')
+      //timeBlockTime.removeClass('future')
+      timeBlockEl.classList.add('past')
+     } else if (timeBlockTime == presentHour) {
+       timeBlockEl.classList.remove('past')
+       //timeBlockTime.removeClass('present')
+       timeBlockEl.classList.add('present')
+     } else if (timeBlockTime > presentHour) {
+       timeBlockEl.classList.remove('present')
+       //timeBlockTime.removeClass('future')
+       timeBlockEl.classList.add('future')
+     }
   }
-
-  if (timeBlockTime > presentHour) {
-    timeBlockTime.removeClass('past')
-    timeBlockTime.removeClass('present')
-    timeBlockTime.addClass('future')
-  }
-
-  if (timeBlockTime < presentHour || timeBlockTime > 17) {
-    timeBlockTime.removeClass('present')
-    timeBlockTime.removeClass('future')
-    timeBlockTime.addClass('past')
-  }
+ 
+  // if (timeBlockTime < presentHour || timeBlockTime > 17) {
+  //   timeBlockTime.removeClass('present')
+  //   timeBlockTime.removeClass('future')
+  //   timeBlockTime.addClass('past')
+  // }
 }
+//get element by class so timeblock class
+//and compare there id # to the hour of day

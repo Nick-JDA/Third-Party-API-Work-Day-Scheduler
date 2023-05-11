@@ -75,3 +75,16 @@ function timeBlockColor() {
 }
 //get element by class so timeblock class
 //and compare there id # to the hour of day
+
+
+$('.saveBtn').on('click', function() {
+  console.log($(this).siblings('.description').val())
+  var key = $(this).parent().attr('id')
+  var value = $(this).siblings('.description').val()
+  localStorage.setItem(key, value);
+})
+
+$('.time-block').each(function() {
+  var hourId = $(this).attr('id');
+  $(this).children('textarea').val(localStorage.getItem(hourId));
+})

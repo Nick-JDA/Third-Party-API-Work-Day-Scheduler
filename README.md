@@ -17,9 +17,14 @@ N/A
 User enters events for each hour of work day on the desired hour for sheduling purposes. As the day passes the user can then see what the current hour by the red text box and thus what events are coming up.
 
 
-Deployed Application URL:
+Deployed Application URL: https://nick-jda.github.io/Third-Party-API-Work-Day-Scheduler/
 
 
-![alt text](./assets/)
+![alt text](./assets/images/nick-jda.github.io_Third-Party-API-Work-Day-Scheduler_.png)
+
+
+
+![alt text](./assets/images/Untitled_%20May%2011%2C%202023%206_04%20PM.gif)
+
 
 ---
